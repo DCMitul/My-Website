@@ -1,0 +1,229 @@
+/* To prevent overflow and make sure the scroll bars aren't visible */
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+/* The one line description formatting and animation */
+
+.about {
+    position: absolute;
+    top: 40px;
+    left: 26%;
+    text-align: center;
+    color: #FF6201;
+    font-size: 40px;
+    font-family: "Unkempt", system-ui;
+    
+
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* The Username formatting and animation*/
+
+.username {
+    position: absolute;
+    top: 60px;
+    left: 22%;
+    color: #F63E02;
+    font-size: 256px;
+    font-family: "Barriecito", system-ui;
+
+
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUp 0.8s ease-out forwards;
+    animation-delay: 1s;
+}
+
+
+/* Tagline formatting and animation */
+
+.tagline { display: inline-block; }
+
+.tagline-text {
+    position: relative;
+    top: 330px;
+    left: 90%;
+    color: #FF6201;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-family: "Unkempt", system-ui;
+
+    border-right: 2px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+
+    width: 0;
+    opacity: 0;
+    animation:
+        reveal 0.2s ease-out 1.8s forwards,
+        typing 2s 1.8s forwards,
+        cursor 0.4s step-end 1.8s infinite alternate;
+}
+
+@keyframes reveal {
+    to { opacity: 1; }
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes cursor {
+    50% { border-color: transparent; }
+}
+
+
+/* The corner circle in the top right corner and the social links*/
+
+.rightcornercircle {
+    position: absolute;
+    top: -335px;
+    right: -335px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center, #F63E02, transparent);
+
+    transform: scale(0);
+    transform-origin: top right;
+    animation: circleReveal 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: 3s;
+}
+
+@keyframes circleReveal {
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.socialicon {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transform: scale(0);
+    animation: iconReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    transition: transform 0.25s ease;
+    background: #F3B700;
+}
+
+.socialicon img {
+    width: 32px;
+    height: 32px;
+    pointer-events: none;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@keyframes iconReveal {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.socialicon:hover {
+    transform: scale(1.15);
+}
+
+.githublink {
+    top: 8px;
+    right: 80px;
+    animation-delay: 3.8s;
+}
+
+.youtubelink {
+    top: 80px;
+    right: 15px;
+    animation-delay: 3.95s;
+}
+
+.macondolink {
+    top: 10px;
+    right: 10px;
+    animation-delay: 4.1s;
+}
+
+
+/* The 'social links' text around the top right circle */
+
+
+
+
+
+/* cursor stuff */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    cursor: none;
+}
+
+.custom-cursor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.full-site {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #e57c04;
+}
+
+.full-site .pointer {
+    width: 5px;
+    height: 5px;
+    background-color: #807f7d;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.1s ease-in-out, height 0.1s ease-in-out, background-color 0.1s ease-in-out;
+}
+
+.full-site.active .pointer {
+    width: 20px;
+    height: 20px;
+    background-color: #e57c04;
+}
+
+
+html, body {
+    background-color: #F3B700;
+}
