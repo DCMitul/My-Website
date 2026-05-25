@@ -21,8 +21,4 @@ function trackcursor(evt) {
 }
 
 
-// Text around the top right circle
-const textarc = document.querySelector('.textarc p');
-textarc.innerHTML = textarc.innerText.split("").map((char, i) => `<span style="transform: rotate(${i * 8.3}deg)">${char}</span>`).join("");
-
 

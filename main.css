@@ -1,3 +1,8 @@
+* {
+    cursor: none;
+}
+
+
 /* To prevent overflow and make sure the scroll bars aren't visible */
 body {
     margin: 0;
@@ -8,11 +13,11 @@ body {
 
 .about {
     position: absolute;
-    top: 40px;
-    left: 26%;
+    top: 8%;
+    left: 33%;
     text-align: center;
     color: #FF6201;
-    font-size: 40px;
+    font-size: 30px;
     font-family: "Unkempt", system-ui;
     
 
@@ -34,7 +39,7 @@ body {
 
 .username {
     position: absolute;
-    top: 60px;
+    top: 8%;
     left: 22%;
     color: #F63E02;
     font-size: 256px;
@@ -53,9 +58,9 @@ body {
 .tagline { display: inline-block; }
 
 .tagline-text {
-    position: relative;
-    top: 330px;
-    left: 90%;
+    position: absolute;
+    top: 40%;
+    left: 33%;
     color: #FF6201;
     font-size: 18px;
     letter-spacing: 2px;
@@ -71,7 +76,7 @@ body {
     animation:
         reveal 0.2s ease-out 1.8s forwards,
         typing 2s 1.8s forwards,
-        cursor 0.4s step-end 1.8s infinite alternate;
+        cursor- 0.4s step-end 1.8s infinite alternate;
 }
 
 @keyframes reveal {
@@ -80,10 +85,10 @@ body {
 
 @keyframes typing {
     from { width: 0; }
-    to { width: 100%; }
+    to { width: 36.6%; }
 }
 
-@keyframes cursor {
+@keyframes cursor- {
     50% { border-color: transparent; }
 }
 
@@ -92,8 +97,8 @@ body {
 
 .rightcornercircle {
     position: absolute;
-    top: -335px;
-    right: -335px;
+    top: -41%;
+    right: -23.4%;
     width: 500px;
     height: 500px;
     border-radius: 50%;
@@ -123,9 +128,11 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+
     transform: scale(0);
     animation: iconReveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     transition: transform 0.25s ease;
+    transition: scale 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     background: #F3B700;
 }
 
@@ -151,31 +158,49 @@ body {
 }
 
 .socialicon:hover {
-    transform: scale(1.15);
+    scale: 1.25;
 }
 
 .githublink {
-    top: 8px;
-    right: 80px;
+    top: 1.2%;
+    right: 5.5%;
     animation-delay: 3.8s;
 }
 
 .youtubelink {
-    top: 80px;
-    right: 15px;
+    top: 9%;
+    right: 0.7%;
     animation-delay: 3.95s;
 }
 
 .macondolink {
-    top: 10px;
-    right: 10px;
+    top: 1.2%;
+    right: 0.8%;
     animation-delay: 4.1s;
 }
 
 
 /* The 'social links' text around the top right circle */
 
+.sociallabel {
+    position: absolute;
+    top: -41%;
+    right: -23.4%;
+    width: 500px;
+    height: 500px;
+    pointer-events: none;
+    overflow: visible;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: top right;
+    animation: circleReveal 1s cubic-bezier(0.22, 1, 0.36, 1) 3s forwards,
+               labelFadeIn 0.8s ease-out 3.3s forwards;
+}
 
+@keyframes labelFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
 
 
 
