@@ -1,9 +1,15 @@
+/* There might be lots of inefficient code(I don't really do front css much) but i don't think I'm gonna focus on making it like that cus it's working fine and I don't want to break anything :> */
+
+
 * {
     cursor: none;
 }
 
+html, body {
+    cursor: none;
+    background-color: #F3B700;
+}
 
-/* To prevent overflow and make sure the scroll bars aren't visible */
 body {
     margin: 0;
     overflow: hidden;
@@ -13,11 +19,11 @@ body {
 
 .about {
     position: absolute;
-    top: 8%;
-    left: 33%;
+    top: 5vh;
+    left: 32.5vw;
     text-align: center;
     color: #FF6201;
-    font-size: 30px;
+    font-size: clamp(3px, 2.2vw, 300px);
     font-family: "Unkempt", system-ui;
     
 
@@ -39,10 +45,10 @@ body {
 
 .username {
     position: absolute;
-    top: 8%;
-    left: 22%;
+    top: 5vh;
+    left: 22vw;
     color: #F63E02;
-    font-size: 256px;
+    font-size: clamp(20px, 18vw, 2048px);
     font-family: "Barriecito", system-ui;
 
 
@@ -59,14 +65,14 @@ body {
 
 .tagline-text {
     position: absolute;
-    top: 40%;
-    left: 33%;
+    top: 38vh;
+    left: 60vh;
     color: #FF6201;
-    font-size: 18px;
-    letter-spacing: 2px;
+    font-size: clamp(0.1px, 1.26vw, 144px);
+    letter-spacing: 0.1em;
     font-family: "Unkempt", system-ui;
 
-    border-right: 2px solid;
+    border-right: 0.1em solid;
     white-space: nowrap;
     overflow: hidden;
     display: inline-block;
@@ -75,8 +81,9 @@ body {
     opacity: 0;
     animation:
         reveal 0.2s ease-out 1.8s forwards,
-        typing 2s 1.8s forwards,
+        typing 5s 1.8s forwards,
         cursor- 0.4s step-end 1.8s infinite alternate;
+    max-width: fit-content;
 }
 
 @keyframes reveal {
@@ -85,7 +92,7 @@ body {
 
 @keyframes typing {
     from { width: 0; }
-    to { width: 36.6%; }
+    to { width: 100%; }
 }
 
 @keyframes cursor- {
@@ -97,10 +104,10 @@ body {
 
 .rightcornercircle {
     position: absolute;
-    top: -41%;
-    right: -23.4%;
-    width: 500px;
-    height: 500px;
+    top: -41vh;
+    right: -23.4vw;
+    width: 34.6vw;
+    height: 34.6vw;
     border-radius: 50%;
     background: radial-gradient(circle at center, #F63E02, transparent);
 
@@ -122,8 +129,8 @@ body {
 
 .socialicon {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 2.81vw;
+    height: 2.81vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,8 +144,8 @@ body {
 }
 
 .socialicon img {
-    width: 32px;
-    height: 32px;
+    width: 2.25vw;
+    height: 2.25vw;
     pointer-events: none;
     object-fit: contain;
     max-width: 100%;
@@ -162,20 +169,20 @@ body {
 }
 
 .githublink {
-    top: 1.2%;
-    right: 5.5%;
+    top: 1.2vh;
+    right: 5.5vw;
     animation-delay: 3.8s;
 }
 
 .youtubelink {
-    top: 9%;
-    right: 0.7%;
+    top: 9vh;
+    right: 0.7vw;
     animation-delay: 3.95s;
 }
 
 .macondolink {
-    top: 1.2%;
-    right: 0.8%;
+    top: 1.2vh;
+    right: 0.8vw;
     animation-delay: 4.1s;
 }
 
@@ -184,10 +191,10 @@ body {
 
 .sociallabel {
     position: absolute;
-    top: -41%;
-    right: -23.4%;
-    width: 500px;
-    height: 500px;
+    top: -40.5vh;
+    right: -23vw;
+    width: 34.5vw;
+    height: 34.5vw;
     pointer-events: none;
     overflow: visible;
     opacity: 0;
@@ -203,6 +210,69 @@ body {
 }
 
 
+/* The left corner circle along with the menu icon */
+
+.leftcornercircle {
+    position: absolute;
+    top: -15vh;
+    left: -10vw;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    background: #E57C04;
+
+    transition: transform 1.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.menu-open .leftcornercircle {
+    transform: scale(20);
+}
+
+.menuicon {
+    position: absolute;
+    top: 1.2vh;
+    left: 0.65vw;
+    width: 2.4vw;
+    height: 2.4vw;
+    display: flex;
+
+    scale: 1;
+
+    transition: scale 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.menuicon:hover {
+    scale: 1.15;
+}
+
+body.menu-open .menuicon {
+    scale: 0;
+}
+
+.closeicon {
+    position: absolute;
+    top: 1.2vh;
+    left: 0.65vw;
+    width: 2.4vw;
+    height: 2.4vw;
+    display: flex;
+
+    scale: 0;
+
+    transition: scale 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body.menu-open .closeicon {
+    scale: 1;
+
+}
+
+body.menu-open .closeicon:hover {
+    scale: 1.15;
+    transition-delay: 0s;
+}
+
+
 
 /* cursor stuff */
 
@@ -212,27 +282,26 @@ body {
     box-sizing: border-box;
 }
 
-html, body {
-    cursor: none;
-}
-
 .custom-cursor {
     position: absolute;
     top: 0;
     left: 0;
     display: none;
+
+    z-index: 99999;
+    pointer-events: none;
 }
 
 .full-site {
-    width: 30px;
-    height: 30px;
+    width: 2vw;
+    height: 2vw;
     border-radius: 50%;
-    border: 2px solid #e57c04;
+    border: 0.14vw solid #FF6201;
 }
 
 .full-site .pointer {
-    width: 5px;
-    height: 5px;
+    width: 0.315vw;
+    height: 0.315vw;
     background-color: #807f7d;
     border-radius: 50%;
     position: absolute;
@@ -243,12 +312,15 @@ html, body {
 }
 
 .full-site.active .pointer {
-    width: 20px;
-    height: 20px;
+    width: 1.5vw;
+    height: 1.5vw;
     background-color: #e57c04;
 }
 
-
-html, body {
-    background-color: #F3B700;
+body.menu-open .full-site.active .pointer {
+    background-color: #FAA300;
 }
+body.menu-open .full-site {
+    border-color: #FAA300;
+}
+

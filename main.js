@@ -21,4 +21,16 @@ function trackcursor(evt) {
 }
 
 
+// The menu icon
+const menuIcon = document.querySelector(".menuicon");
 
+menuIcon.addEventListener("click", () => {
+    document.body.classList.add("menu-open");
+});
+
+// The close icon
+const closeIcon = document.querySelector(".closeicon");
+
+closeIcon.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
+});
